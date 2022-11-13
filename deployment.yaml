@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: decken-deployment
+  labels:
+    type: demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: demo
+  template:
+    metadata:
+      labels:
+        type: demo
+    spec:
+      containers:
+      - name: decken
+        image: deckenkang66/python-docker
+        ports:
+        - containerPort: 5000
